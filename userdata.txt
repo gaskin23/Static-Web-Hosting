@@ -1,0 +1,11 @@
+#! /bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd 
+systemctl enable httpd 
+yum install git -y
+cd /var/www/html
+git clone https://github.com/gaskin23/Static-Web-Hosting.git
+cd /var/www/html
+mv Static-Web-Hosting/* .
+systemctl restart httpd
